@@ -52,10 +52,10 @@ var mediumTotal =  0
         var total = (
 
             
-        (xLargeTotal ) + (xLargeTotal < 1 ? largeTotal : (largeTotal - firstLargePrice) + additionalLargePrice) + (greaterThanMedium <= 0 ? mediumTotal :  mediumPriceDifference)) + (greaterThanSmall <= 0 ? smallTotal : (smallPriceDifference  ))
+        (xLargeTotal ) + (xLarge === 0 ? largeTotal : (largeTotal - firstLargePrice) + additionalLargePrice) + (large + xLarge === 0 ? mediumTotal :  (mediumTotal - firstMediumPrice) + additionalMediumPrice)) + ((large + xLarge + medium)  === 0 ? smallTotal : ((smallTotal * small ) - firstSmallPrice) )
             
             
-            
+                
 
             
 
@@ -65,12 +65,12 @@ var mediumTotal =  0
     
         document.getElementById("calculationResult").textContent = "Total: $" + total;
 
-        
+
         console.log('xlargeTotal',xLargeTotal)
         console.log('large totatl', largeTotal)
         console.log('mediumTotal',mediumTotal)
         console.log('small total',smallTotal)
-        console.log('medium calculation' ,greaterThanMedium <= 0 ? mediumTotal : (mediumTotal - firstMediumPrice) + additionalMediumPrice)
+        console.log('medium calculation' ,mediumPriceDifference <= 0 ? mediumTotal : (mediumTotal - firstMediumPrice) + additionalMediumPrice)
         console.log('medium calculation 2',greaterThanMedium > 0 ? (mediumTotal - firstMediumPrice) + additionalMediumPrice  :  mediumTotal)
 
 
@@ -84,7 +84,7 @@ var mediumTotal =  0
 
         console.log('greater medium', greaterThanMedium)
 
-        console.log('small calculation', (greaterThanSmall <= 0 ? smallTotal : (smallPriceDifference)))
+        console.log('small calculation', ( ((smallTotal + additionalSmallPrice) * small) + firstSmallPrice))
             console.log("greate small",greaterThanSmall)
 
         console.log('mediumTotal',mediumTotal)
